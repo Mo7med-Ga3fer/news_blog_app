@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog_app/views/membership_view.dart';
+import 'package:news_blog_app/widgets/image_carousel.dart';
+
+import 'views/home_view.dart';
 
 
 
@@ -15,8 +17,9 @@ class NewsBlogApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MembershipView(),
+      home: HomeView(),
     );
   }
+  
 }
 
