@@ -4,16 +4,11 @@ import 'package:news_blog_app/views/home_view.dart';
 import 'package:news_blog_app/views/login_view.dart';
 import 'package:news_blog_app/views/sign_up_view.dart';
 
-
-
-
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark
-  ));
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark));
   runApp(const NewsBlogApp());
 }
 
@@ -26,13 +21,11 @@ class NewsBlogApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-      LoginView.id :(context) => const LoginView(),
-      SignUpView.id :(context) => const SignUpView(),  
-      HomeView.id :(context) => const HomeView()
+        LoginView.id: (context) => const LoginView(),
+        SignUpView.id: (context) => const SignUpView(),
+        HomeView.id: (context) => const HomeView()
       },
       initialRoute: LoginView.id,
     );
   }
-  
 }
-
