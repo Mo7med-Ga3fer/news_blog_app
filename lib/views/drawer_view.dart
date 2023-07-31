@@ -13,7 +13,7 @@ class DrawerView extends StatelessWidget {
         children: const [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: kPrimaryColor,
+              color: Colors.grey,
             ),
             child: Row(
               children: [
@@ -26,7 +26,8 @@ class DrawerView extends StatelessWidget {
                 SizedBox(width: 10,),
                 Text('Lionel Messi', style: TextStyle(
                   fontSize: 24,
-                  fontWeight: FontWeight.w800
+                  fontWeight: FontWeight.w700,
+                  color: kPrimaryColor,
                 ),)
               ],
             ),

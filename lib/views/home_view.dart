@@ -8,6 +8,8 @@ import 'package:news_blog_app/widgets/news_item.dart';
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
+  static String id = 'HomeView';
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

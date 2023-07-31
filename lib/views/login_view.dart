@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_blog_app/views/sign_up_view.dart';
 import 'package:news_blog_app/widgets/custom_button.dart';
 import 'package:news_blog_app/widgets/custom_small_button.dart';
 import '../widgets/custom_form_field.dart';
@@ -6,7 +7,7 @@ import '../widgets/custom_text_button.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
-
+  static String id = 'LoginView';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,13 +39,18 @@ class LoginView extends StatelessWidget {
               txt: 'Sign In',
             ),
             const SizedBox(height: 10,),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account?", style: TextStyle(
+                const Text("Don't have an account?", style: TextStyle(
                   fontSize: 16,
                 ),),
-                CustomTextButton(txt: 'Sign Up')
+                CustomTextButton(
+                  txt: 'Sign Up',
+                  onTap: (){
+                    Navigator.pushNamed(context, SignUpView.id);
+                  },
+                  ),
               ],
             ),
             const SizedBox(height: 50,),
