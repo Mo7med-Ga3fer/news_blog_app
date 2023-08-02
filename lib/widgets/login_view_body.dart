@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_blog_app/models/news_model.dart';
+import 'package:news_blog_app/services/get_news_service.dart';
 import '../views/sign_up_view.dart';
 import 'custom_button.dart';
 import 'custom_form_field.dart';
@@ -34,8 +36,12 @@ class LoginViewBody extends StatelessWidget {
                 hintText: 'Email Address',
               ),
               const CustomFormField(hintText: 'Password'),
-              const CustomTextButton(
+              CustomTextButton(
                 txt: 'Forget Password?',
+                onTap: ()async{
+                  List<NewsModel> test =await  GetNewsService().GetNewsData();
+                  print(test[1].title);
+                },
               ),
               const CustomButton(
                 txt: 'Sign In',

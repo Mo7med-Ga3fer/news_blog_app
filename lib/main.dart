@@ -29,3 +29,4 @@ class NewsBlogApp extends StatelessWidget {
     );
   }
 }
+
