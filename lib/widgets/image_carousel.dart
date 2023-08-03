@@ -65,14 +65,18 @@ class _ImageSliderState extends State<ImageSlider> {
             ),
         ),
         const SizedBox(height: 20,),
-        DotsIndicator(
-            dotsCount: 4,
-            position: 0,
-            decorator: DotsDecorator(
-            color: const Color.fromARGB(221, 61, 59, 59), // Inactive color
-            activeColor: Colors.redAccent,
-          ),
-          ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: DotsIndicator(
+              dotsCount: widget.imageList.length,
+              position: currentIndex,
+              decorator: const DotsDecorator(
+              color: Color.fromARGB(221, 61, 59, 59), // Inactive color
+              activeColor: Colors.redAccent,
+              size: Size(9, 9)
+            ),
+            ),
+        ),
       ],
     );
   }
