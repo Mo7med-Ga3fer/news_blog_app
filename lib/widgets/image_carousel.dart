@@ -13,7 +13,7 @@ class  ImageSlider extends StatefulWidget {
 }
 
 class _ImageSliderState extends State<ImageSlider> {
-  late int currentIndex;
+  int currentIndex = 0;
   
   @override
   Widget build(BuildContext context) {
