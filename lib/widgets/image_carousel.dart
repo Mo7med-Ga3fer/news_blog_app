@@ -1,20 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:news_blog_app/models/news_model.dart';
   
   
 class  ImageSlider extends StatefulWidget {
-  const ImageSlider({super.key});
-
+  const ImageSlider({super.key, required this.imageList,});
+  final List<NewsModel> imageList;
   @override
   State<ImageSlider> createState() => _ImageSliderState();
 }
 
 class _ImageSliderState extends State<ImageSlider> {
   late int currentIndex;
-
+  
   @override
   Widget build(BuildContext context) {
+    
     return Column(
       children: [
         SizedBox(
@@ -24,12 +26,13 @@ class _ImageSliderState extends State<ImageSlider> {
                 CarouselSlider.builder(
                   itemCount: 15,
                   itemBuilder: (context, index, pageIndex){
+                    
                     return Container(
                         margin: const EdgeInsets.all(6.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          image: const DecorationImage(
-                            image: NetworkImage("https://c4.wallpaperflare.com/wallpaper/1001/743/752/argentina-fifa-world-cup-lionel-messi-hd-wallpaper-preview.jpg"),
+                          image: DecorationImage(
+                            image: NetworkImage(widget.imageList[index].urlToImage),
                             fit: BoxFit.cover,
                           ),
                         ),

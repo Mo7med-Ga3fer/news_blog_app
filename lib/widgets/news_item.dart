@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog_app/constants.dart';
+import 'package:news_blog_app/models/news_model.dart';
 
 class NewsItem extends StatelessWidget {
-  const NewsItem({super.key});
-
+  const NewsItem({super.key, required this.newsModel});
+  final NewsModel newsModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,17 +15,17 @@ class NewsItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 200,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Sports', style: TextStyle(
+                    Text(newsModel.author, style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                       color: kPrimaryColor
                     ),),
-                    Text('CNN: The Goat won the world cup', style: TextStyle(
+                    Text(newsModel.title, style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                       color: Colors.black
@@ -33,7 +34,7 @@ class NewsItem extends StatelessWidget {
                     maxLines: 3,
                     ),
                     SizedBox(height: 10,),
-                    Text('20 jan 2021', style: TextStyle(
+                    Text(newsModel.publishedAt, style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey,
                     ),),
@@ -47,8 +48,8 @@ class NewsItem extends StatelessWidget {
                         margin: const EdgeInsets.all(6.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          image: const DecorationImage(
-                            image: NetworkImage("https://c4.wallpaperflare.com/wallpaper/1001/743/752/argentina-fifa-world-cup-lionel-messi-hd-wallpaper-preview.jpg"),
+                          image: DecorationImage(
+                            image: NetworkImage(newsModel.urlToImage),
                             fit: BoxFit.cover,
                           ),
                         ),
