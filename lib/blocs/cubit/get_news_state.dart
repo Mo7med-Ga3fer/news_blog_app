@@ -8,6 +8,7 @@ class GetNewsLoading extends GetNewsState {}
 class GetNewsSucces extends GetNewsState {
   final List<NewsModel> newsData;
 
+
   GetNewsSucces({required this.newsData});
 
 }
