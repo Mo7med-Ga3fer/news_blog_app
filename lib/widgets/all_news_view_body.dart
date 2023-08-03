@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_blog_app/blocs/cubit/get_news_cubit.dart';
 import '../constants.dart';
-import 'custom_text_button.dart';
 import 'image_carousel.dart';
 import 'news_item.dart';
 

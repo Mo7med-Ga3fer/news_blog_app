@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:news_blog_app/models/news_model.dart';
+import '../views/content_view.dart';
   
   
 class  ImageSlider extends StatefulWidget {
@@ -24,19 +25,24 @@ class _ImageSliderState extends State<ImageSlider> {
           child: ListView(
               children: [
                 CarouselSlider.builder(
-                  itemCount: 15,
+                  itemCount: widget.imageList.length,
                   itemBuilder: (context, index, pageIndex){
                     
-                    return Container(
-                        margin: const EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          image: DecorationImage(
-                            image: NetworkImage(widget.imageList[index].urlToImage),
-                            fit: BoxFit.cover,
+                    return GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> ContentView(newsModel: widget.imageList[index])));
+                      },
+                      child: Container(
+                          margin: const EdgeInsets.all(6.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            image: DecorationImage(
+                              image: NetworkImage(widget.imageList[index].urlToImage),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      );
+                    );
                   },
                   //Slider Container properties
                     options: CarouselOptions(

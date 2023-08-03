@@ -27,11 +27,10 @@ class NewsBlogApp extends StatelessWidget {
         routes: {
           LoginView.id: (context) => const LoginView(),
           SignUpView.id: (context) => const SignUpView(),
-          HomeView.id: (context) => const HomeView()
+          HomeView.id: (context) => const HomeView(),
         },
         initialRoute: HomeView.id,
       ),
     );
   }
 }
-
