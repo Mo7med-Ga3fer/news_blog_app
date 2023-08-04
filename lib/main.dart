@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,12 +6,16 @@ import 'package:news_blog_app/blocs/cubit/get_news_cubit.dart';
 import 'package:news_blog_app/views/home_view.dart';
 import 'package:news_blog_app/views/login_view.dart';
 import 'package:news_blog_app/views/sign_up_view.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark));
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const NewsBlogApp());
 }
 
@@ -29,7 +34,7 @@ class NewsBlogApp extends StatelessWidget {
           SignUpView.id: (context) => const SignUpView(),
           HomeView.id: (context) => const HomeView(),
         },
-        initialRoute: HomeView.id,
+        initialRoute: LoginView.id,
       ),
     );
   }
